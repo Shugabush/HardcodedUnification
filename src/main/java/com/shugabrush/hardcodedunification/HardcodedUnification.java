@@ -24,13 +24,15 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(HardcodedUnification.MOD_ID)
 @SuppressWarnings("removal")
-public class HardcodedUnification {
+public class HardcodedUnification
+{
 
     public static final String MOD_ID = "hardcodedunification";
     public static final Logger LOGGER = LogManager.getLogger();
     public static GTRegistrate EXAMPLE_REGISTRATE = GTRegistrate.create(HardcodedUnification.MOD_ID);
 
-    public HardcodedUnification() {
+    public HardcodedUnification()
+    {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
@@ -52,14 +54,17 @@ public class HardcodedUnification {
         EXAMPLE_REGISTRATE.registerRegistrate();
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
+    private void commonSetup(final FMLCommonSetupEvent event)
+    {
+        event.enqueueWork(() ->
+        {
             LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:");
             LOGGER.info("Look, I found a {}!", Items.DIAMOND);
         });
     }
 
-    private void clientSetup(final FMLClientSetupEvent event) {
+    private void clientSetup(final FMLClientSetupEvent event)
+    {
         LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
     }
 
@@ -69,7 +74,8 @@ public class HardcodedUnification {
      * @param path
      * @return ResourceLocation with the namespace of your mod
      */
-    public static ResourceLocation id(String path) {
+    public static ResourceLocation id(String path)
+    {
         return new ResourceLocation(MOD_ID, path);
     }
 
@@ -80,7 +86,8 @@ public class HardcodedUnification {
      * 
      * @param event
      */
-    private void addMaterialRegistries(MaterialRegistryEvent event) {
+    private void addMaterialRegistries(MaterialRegistryEvent event)
+    {
         GTCEuAPI.materialManager.createRegistry(HardcodedUnification.MOD_ID);
     }
 
@@ -90,7 +97,8 @@ public class HardcodedUnification {
      * 
      * @param event
      */
-    private void addMaterials(MaterialEvent event) {
+    private void addMaterials(MaterialEvent event)
+    {
         // CustomMaterials.init();
     }
 
@@ -99,7 +107,8 @@ public class HardcodedUnification {
      * 
      * @param event
      */
-    private void modifyMaterials(PostMaterialEvent event) {
+    private void modifyMaterials(PostMaterialEvent event)
+    {
         // CustomMaterials.modify();
     }
 
@@ -109,7 +118,8 @@ public class HardcodedUnification {
      * 
      * @param event
      */
-    private void registerRecipeTypes(GTCEuAPI.RegisterEvent<ResourceLocation, GTRecipeType> event) {
+    private void registerRecipeTypes(GTCEuAPI.RegisterEvent< ResourceLocation, GTRecipeType> event)
+    {
         // CustomRecipeTypes.init();
     }
 
@@ -119,7 +129,8 @@ public class HardcodedUnification {
      * 
      * @param event
      */
-    private void registerMachines(GTCEuAPI.RegisterEvent<ResourceLocation, MachineDefinition> event) {
+    private void registerMachines(GTCEuAPI.RegisterEvent< ResourceLocation, MachineDefinition> event)
+    {
         // CustomMachines.init();
     }
 
@@ -129,7 +140,8 @@ public class HardcodedUnification {
      * 
      * @param event
      */
-    public void registerSounds(GTCEuAPI.RegisterEvent<ResourceLocation, SoundEntry> event) {
+    public void registerSounds(GTCEuAPI.RegisterEvent< ResourceLocation, SoundEntry> event)
+    {
         // CustomSounds.init();
     }
 }
