@@ -4,6 +4,16 @@
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "mixins": [
+    "gtceu.LargeBoilerMachineMixin",
+    "gtceu.SteamBoilerMachineMixin",
+    "industrialforegoing.FluidTankComponentMixin",
+    "industrialforegoing.JEICustomPluginMixin",
+    "industrialforegoing.LatexProcessingUnitTileMixin",
+    "powah.ReactorTileMixin",
+    "sgjourney.CrystallizerRecipeCategoryMixin",
+    "sgjourney.StargateJourneyClientModEventsMixin",
+    "sgjourney.UnifySGJourneyCrystallizerNaquadahMixin",
+    "sophisticatedcore.XpPumpUpgradeWrapperMixin"
   ],
   "client": [
   ],
