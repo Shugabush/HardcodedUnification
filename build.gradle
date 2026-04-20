@@ -66,7 +66,9 @@ repositories {
     maven {
         url = "https://thedarkcolour.github.io/KotlinForForge/"
     }
-
+    flatDir {
+        dir 'libs'
+    }
 }
 
 version = mod_version
@@ -157,6 +159,12 @@ dependencies {
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    // Almost Unified
+    modImplementation("com.almostreliable.unified:almostunified-forge-${minecraft_version}-${almost_unified_version}")
+
+    // Almost Fluidified
+    modImplementation("com.shugabrush.almostfluidified:almostfluidified-${almost_fluidified_version}")
 }
 
 // See com.example.examplemod.mixin.DummyMixin for information about mixins
