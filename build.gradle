@@ -171,10 +171,6 @@ dependencies {
     modImplementation("me.shedaniel:architectury-${architectury_version}-forge")
     modImplementation("owmii.powah:Powah-${powah_version}")
 
-    // Thermal and dependencies
-//    modImplementation("teamcofh.cofhcore:cofh_core-${minecraft_version}-${cofh_core_version}")
-//    modImplementation("teamcofh.thermal:thermal_foundation-${minecraft_version}-${thermal_version}")
-
     // Mekanism
     modImplementation("mekanism.common:Mekanism-${minecraft_version}-${mekanism_version}")
 
@@ -190,14 +186,10 @@ dependencies {
     // Stargate Journey
     modImplementation("net.povstalec.sgjourney:Stargate Journey-${minecraft_version}-${stargate_journey_version}")
 
-    // Productive Bees
-    //modImplementation("cy.jdkdigital.productivebees:productivebees-${minecraft_version}-${productivebees_version}")
-
-    // The Bumblezone
-    //modImplementation("com.telepathicgrunt.the_bumblezone.neoforge:the_bumblezone-${the_bumblezone_version}+${minecraft_version}-forge")
+    // Avaritia
+    modImplementation("committee.nova.mods.avaritia:Re-Avaritia-forge-${minecraft_version}-${avaritia_version}-release")
 }
 
-// See com.example.examplemod.mixin.DummyMixin for information about mixins
 mixin {
     add sourceSets.main, "mixins.${mod_id}.refmap.json"
     config "${mod_id}.mixins.json"
