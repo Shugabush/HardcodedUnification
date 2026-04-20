@@ -36,14 +36,8 @@ Example Description
         ordering = "NONE"
         side = "BOTH"
     [[dependencies.${mod_id}]]
-        modId = "almostunified"
+        modId = "gtceu"
         mandatory = false
-        versionRange = "[${almost_unified_version},)"
+        versionRange = "[${gtceu_version},)"
         ordering = "AFTER"
-        side = "BOTH",
-[[dependencies.${mod_id}]]
-    modId = "almostfluidified"
-    mandatory = false
-    versionRange = "[${almost_fluidified_version},)"
-    ordering = "AFTER"
-    side = "BOTH"
+        side = "BOTH"

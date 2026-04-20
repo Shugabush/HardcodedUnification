@@ -25,11 +25,6 @@ sourceSets {
 repositories {
     mavenLocal()
     mavenCentral()
-
-    flatDir {
-        dir 'libs'
-    }
-
     maven {
         name = 'GTCEu Maven'
         url = 'https://maven.gtceu.com'
@@ -63,6 +58,11 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        // EMI
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
     maven {
         url = "https://thedarkcolour.github.io/KotlinForForge/"
     }
@@ -129,7 +129,7 @@ legacyForge {
 }
 jar {
     manifest.attributes([
-            "MixinConfigs": "almostfluidified.mixins.json"
+            "MixinConfigs": "hardcodedunification.mixins.json"
     ])
 }
 
@@ -141,20 +141,12 @@ dependencies {
     // Mixin
     annotationProcessor('org.spongepowered:mixin:0.8.5:processor')
 
-    // JEI, Jade
+    // JEI, EMI, Jade
     modCompileOnly("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
     modCompileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     modRuntimeOnly("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    modRuntimeOnly("dev.emi:emi-forge:${emi_version}+${minecraft_version}")
     modRuntimeOnly("curse.maven:jade-324717:5390389")
-
-    // Almost Unified
-    modImplementation("com.almostreliable.unified:almostunified-forge-${minecraft_version}-${almost_unified_version}")
-
-    // Almost Fluidified
-    modImplementation("com.shugabrush.almostfluidified:almostfluidified-${almost_fluidified_version}")
-
-    // Kotlin for Forge
-    modImplementation("thedarkcolour.kotlinforforge.forge:kotlinforforge-${kotlin_version}-all")
 
     // GregTech and dependencies
     modImplementation("com.gregtechceu.gtceu:gtceu-${minecraft_version}:${gtceu_version}:slim") { transitive = false }
@@ -165,36 +157,6 @@ dependencies {
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-
-    // Powah and dependencies
-    modImplementation("me.shedaniel:cloth-config-${cloth_version}-forge")
-    modImplementation("me.shedaniel:architectury-${architectury_version}-forge")
-    modImplementation("owmii.powah:Powah-${powah_version}")
-
-    // Thermal and dependencies
-    modImplementation("teamcofh.cofhcore:cofh_core-${minecraft_version}-${cofh_core_version}")
-    modImplementation("teamcofh.thermal:thermal_foundation-${minecraft_version}-${thermal_version}")
-
-    // Mekanism
-    modImplementation("mekanism.common:Mekanism-${minecraft_version}-${mekanism_version}")
-
-    // Sophisticated Mods
-    modImplementation("net.p3pp3rf1y.sophisticatedcore:sophisticatedcore-${minecraft_version}-${sophisticated_core_version}")
-    modImplementation("net.p3pp3rf1y.sophisticatedstorage:sophisticatedstorage-${minecraft_version}-${sophisticated_storage_version}")
-    modImplementation("net.p3pp3rf1y.sophisticatedbackpacks:sophisticatedbackpacks-${minecraft_version}-${sophisticated_backpacks_version}")
-
-    // Industrial Foregoing and dependencies
-    modImplementation("com.hrznstudio.titanium:titanium-${minecraft_version}-${titanium_version}")
-    modImplementation("com.buuz135.industrial:industrial-foregoing-${minecraft_version}-${industrial_foregoing_version}")
-
-    // Stargate Journey
-    modImplementation("net.povstalec.sgjourney:Stargate Journey-${minecraft_version}-${stargate_journey_version}")
-
-    // Productive Bees
-    modImplementation("cy.jdkdigital.productivebees:productivebees-${minecraft_version}-${productivebees_version}")
-
-    // The Bumblezone
-    modImplementation("com.telepathicgrunt.the_bumblezone.neoforge:the_bumblezone-${the_bumblezone_version}+${minecraft_version}-forge")
 }
 
 // See com.example.examplemod.mixin.DummyMixin for information about mixins
@@ -214,10 +176,6 @@ tasks.named('processResources', ProcessResources).configure {
             "forge_version": forge_version.split("\\.")[0], // only specify major version of forge
             "minecraft_version": minecraft_version,
             "gtceu_version": gtceu_version,
-            "kotlin_version": kotlin_version,
-            "configuration_version": configuration_version,
-            "almost_unified_version": almost_unified_version,
-            "almost_fluidified_version": almost_fluidified_version
     ]
     inputs.properties(properties)
 
