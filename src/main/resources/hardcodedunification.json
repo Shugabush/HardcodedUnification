@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "com.shugabrush.hardcodedunification.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "mixins.hardcodedunification.refmap.json",
+  "mixins": [
+    "gtceu.LargeBoilerMachineMixin",
+    "gtceu.SteamBoilerMachineMixin",
+    "industrialforegoing.FluidTankComponentMixin",
+    "industrialforegoing.JEICustomPluginMixin",
+    "industrialforegoing.LatexProcessingUnitTileMixin",
+    "powah.ReactorTileMixin",
+    "sgjourney.CrystallizerRecipeCategoryMixin",
+    "sgjourney.StargateJourneyClientModEventsMixin",
+    "sgjourney.UnifySGJourneyCrystallizerNaquadahMixin",
+    "sophisticatedcore.XpPumpUpgradeWrapperMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
