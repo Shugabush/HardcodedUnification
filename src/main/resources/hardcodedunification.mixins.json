@@ -14,7 +14,8 @@
     "sgjourney.CrystallizerRecipeCategoryMixin",
     "sgjourney.StargateJourneyClientModEventsMixin",
     "sgjourney.UnifySGJourneyCrystallizerNaquadahMixin",
-    "sophisticatedcore.XpPumpUpgradeWrapperMixin"
+    "sophisticatedcore.XpPumpUpgradeWrapperMixin",
+    "mobgrindingutils.TileEntitySinkTankMixin"
   ],
   "client": [
   ],

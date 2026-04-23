@@ -3,6 +3,7 @@ package com.shugabrush.hardcodedunification.utils;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.ModList;
 
 import com.shugabrush.almostfluidified.AlmostFluidified;
@@ -27,5 +28,10 @@ public class FluidUnification
     public static Fluid getFluid(Fluid fluid)
     {
         return getFluid(BuiltInRegistries.FLUID.getKey(fluid));
+    }
+
+    public static FluidStack getFluid(FluidStack stack)
+    {
+        return new FluidStack(getFluid(stack.getFluid()), stack.getAmount());
     }
 }

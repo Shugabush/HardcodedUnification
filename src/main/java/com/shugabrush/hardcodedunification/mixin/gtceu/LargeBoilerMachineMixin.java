@@ -25,6 +25,6 @@ public class LargeBoilerMachineMixin
     {
         if (!ModList.get().isLoaded("almostfluidified"))
             return stack;
-        return new FluidStack(FluidUnification.getFluid(stack.getFluid()), stack.getAmount());
+        return FluidUnification.getFluid(stack);
     }
 }
