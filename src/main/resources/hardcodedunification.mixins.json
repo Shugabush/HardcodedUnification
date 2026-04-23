@@ -15,7 +15,8 @@
     "sgjourney.StargateJourneyClientModEventsMixin",
     "sgjourney.UnifySGJourneyCrystallizerNaquadahMixin",
     "sophisticatedcore.XpPumpUpgradeWrapperMixin",
-    "mobgrindingutils.TileEntitySinkTankMixin"
+    "mobgrindingutils.TileEntitySinkTankMixin",
+    "mobgrindingutils.TileEntityAbsorptionHopperMixin"
   ],
   "client": [
   ],
