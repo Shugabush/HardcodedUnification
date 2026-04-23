@@ -1,6 +1,5 @@
 package com.shugabrush.hardcodedunification.mixin.industrialforegoing;
 
-import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.fluids.FluidStack;
@@ -8,6 +7,7 @@ import net.minecraftforge.fml.ModList;
 
 import com.buuz135.industrial.plugin.jei.JEICustomPlugin;
 import com.buuz135.industrial.plugin.jei.machineproduce.MachineProduceWrapper;
+import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import com.shugabrush.hardcodedunification.utils.ItemUnification;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -53,7 +53,7 @@ public class JEICustomPluginMixin
                     FluidStack unifiedFluid = FluidUnification.getFluid(outputFluid);
                     if (unifiedFluid != null && !unifiedFluid.getFluid().isSame(outputFluid.getFluid()))
                     {
-                        recipes.set(i, (T)new MachineProduceWrapper(wrapper.getBlock(), unifiedFluid));
+                        recipes.set(i, (T) new MachineProduceWrapper(wrapper.getBlock(), unifiedFluid));
                     }
                 }
             }
