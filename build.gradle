@@ -188,6 +188,9 @@ dependencies {
 
     // Avaritia
     modImplementation("committee.nova.mods.avaritia:Re-Avaritia-forge-${minecraft_version}-${avaritia_version}-release")
+
+    // Mob Grinding Utils
+    modImplementation("mob_grinding_utils:mob_grinding_utils-${minecraft_version}-${mob_grinding_utils_version}")
 }
 
 mixin {
