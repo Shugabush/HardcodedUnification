@@ -16,7 +16,8 @@
     "sgjourney.UnifySGJourneyCrystallizerNaquadahMixin",
     "sophisticatedcore.XpPumpUpgradeWrapperMixin",
     "mobgrindingutils.TileEntitySinkTankMixin",
-    "mobgrindingutils.TileEntityAbsorptionHopperMixin"
+    "mobgrindingutils.TileEntityAbsorptionHopperMixin",
+    "utilitix.TileExperienceCrystalMixin"
   ],
   "client": [
   ],
