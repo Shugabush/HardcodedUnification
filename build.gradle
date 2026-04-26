@@ -191,6 +191,10 @@ dependencies {
 
     // Mob Grinding Utils
     modImplementation("mob_grinding_utils:mob_grinding_utils-${minecraft_version}-${mob_grinding_utils_version}")
+
+    // UtilitiX and dependencies
+    modImplementation("de.melanx.utilitix:UtilitiX-${minecraft_version}-${utilitix_version}")
+    modImplementation("org.moddingx.libx:LibX-${minecraft_version}-${libx_version}")
 }
 
 mixin {
