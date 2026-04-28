@@ -38,14 +38,6 @@ public class HardcodedUnification
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
 
-        modEventBus.addListener(this::addMaterialRegistries);
-        modEventBus.addListener(this::addMaterials);
-        modEventBus.addListener(this::modifyMaterials);
-
-        modEventBus.addGenericListener(GTRecipeType.class, this::registerRecipeTypes);
-        modEventBus.addGenericListener(MachineDefinition.class, this::registerMachines);
-        modEventBus.addGenericListener(SoundEntry.class, this::registerSounds);
-
         // Most other events are fired on Forge's bus.
         // If we want to use annotations to register event listeners,
         // we need to register our object like this!
@@ -58,14 +50,13 @@ public class HardcodedUnification
     {
         event.enqueueWork(() ->
         {
-            LOGGER.info("Hello from common setup! This is *after* registries are done, so we can do this:");
-            LOGGER.info("Look, I found a {}!", Items.DIAMOND);
+
         });
     }
 
     private void clientSetup(final FMLClientSetupEvent event)
     {
-        LOGGER.info("Hey, we're on Minecraft version {}!", Minecraft.getInstance().getLaunchedVersion());
+
     }
 
     /**
@@ -77,71 +68,5 @@ public class HardcodedUnification
     public static ResourceLocation id(String path)
     {
         return new ResourceLocation(MOD_ID, path);
-    }
-
-    /**
-     * Create a material manager for your mod using GT's API.
-     * You MUST have this if you have custom materials.
-     * Remember to register them not to GT's namespace, but your own.
-     * 
-     * @param event
-     */
-    private void addMaterialRegistries(MaterialRegistryEvent event)
-    {
-        GTCEuAPI.materialManager.createRegistry(HardcodedUnification.MOD_ID);
-    }
-
-    /**
-     * You will also need this for registering custom materials
-     * Call init() from your Material class(es) here
-     * 
-     * @param event
-     */
-    private void addMaterials(MaterialEvent event)
-    {
-        // CustomMaterials.init();
-    }
-
-    /**
-     * (Optional) Used to modify pre-existing materials from GregTech
-     * 
-     * @param event
-     */
-    private void modifyMaterials(PostMaterialEvent event)
-    {
-        // CustomMaterials.modify();
-    }
-
-    /**
-     * Used to register your own new RecipeTypes.
-     * Call init() from your RecipeType class(es) here
-     * 
-     * @param event
-     */
-    private void registerRecipeTypes(GTCEuAPI.RegisterEvent< ResourceLocation, GTRecipeType> event)
-    {
-        // CustomRecipeTypes.init();
-    }
-
-    /**
-     * Used to register your own new machines.
-     * Call init() from your Machine class(es) here
-     * 
-     * @param event
-     */
-    private void registerMachines(GTCEuAPI.RegisterEvent< ResourceLocation, MachineDefinition> event)
-    {
-        // CustomMachines.init();
-    }
-
-    /**
-     * Used to register your own new sounds
-     * Call init from your Sound class(es) here
-     * 
-     * @param event
-     */
-    public void registerSounds(GTCEuAPI.RegisterEvent< ResourceLocation, SoundEntry> event)
-    {
-        // CustomSounds.init();
     }
 }
