@@ -195,6 +195,12 @@ dependencies {
     // UtilitiX and dependencies
     modImplementation("de.melanx.utilitix:UtilitiX-${minecraft_version}-${utilitix_version}")
     modImplementation("org.moddingx.libx:LibX-${minecraft_version}-${libx_version}")
+
+    // Ad Astra and dependencies
+    modImplementation("earth.terrarium.common_storage_lib:botarium-forge-${minecraft_version}-${botarium_version}")
+    modImplementation("com.teamresourceful.resourcefulconfig:resourcefulconfig-forge-${minecraft_version}-${resourceful_config_version}")
+    modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}-${resourceful_lib_version}")
+    modImplementation("earth.terrarium.adastra:ad_astra-forge-${minecraft_version}-${ad_astra_version}")
 }
 
 mixin {
