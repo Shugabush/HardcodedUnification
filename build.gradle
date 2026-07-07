@@ -202,8 +202,18 @@ dependencies {
     modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}-${resourceful_lib_version}")
     modImplementation("earth.terrarium.adastra:ad_astra-forge-${minecraft_version}-${ad_astra_version}")
 
-    // Inventory Pets and dependencies
+    // Curios
     modImplementation("top.theillusivec4.curios:curios-forge-${curios_version}+${minecraft_version}")
+
+    // Applied Energistics and dependencies and addons
+    modImplementation("appeng.core:appliedenergistics2-forge-${ae2_version}")
+    modImplementation("guideme:guideme-${guideme_version}");
+    modImplementation("net.pedroksl.ae2addonlib:AE2AddonLib-${ae2_addon_lib_version}-${minecraft_version}")
+    modImplementation("net.pedroksl.advanced_ae:AdvancedAE-${advanced_ae_version}-${minecraft_version}")
+    modImplementation("software.bernie.geckolib.core:geckolib-forge-${minecraft_version}-${geckolib_version}")
+    modImplementation("com.glodblock.github.glodium:Glodium-1.20-${glodium_version}-forge")
+    modImplementation("com.glodblock.github.ae2netanalyser:AppliedFlux-1.20-${applied_flux_version}-forge")
+    modImplementation("me.ramidzkh.mekae2:Applied-Mekanistics-${applied_mekanistics_version}")
 }
 
 mixin {
