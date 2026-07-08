@@ -205,7 +205,7 @@ dependencies {
     // Curios
     modImplementation("top.theillusivec4.curios:curios-forge-${curios_version}+${minecraft_version}")
 
-    // Applied Energistics and dependencies and addons
+    // Applied Energistics and dependencies/dependents
     modImplementation("appeng.core:appliedenergistics2-forge-${ae2_version}")
     modImplementation("guideme:guideme-${guideme_version}");
     modImplementation("net.pedroksl.ae2addonlib:AE2AddonLib-${ae2_addon_lib_version}-${minecraft_version}")
@@ -214,6 +214,18 @@ dependencies {
     modImplementation("com.glodblock.github.glodium:Glodium-1.20-${glodium_version}-forge")
     modImplementation("com.glodblock.github.ae2netanalyser:AppliedFlux-1.20-${applied_flux_version}-forge")
     modImplementation("me.ramidzkh.mekae2:Applied-Mekanistics-${applied_mekanistics_version}")
+
+    // I couldn't find the source code for Mekanism Tools and Mekanism Generators, so I'm using their maven repositories instead
+    modImplementation("curse.maven:mekanism-tools-268567:6552915")
+    modImplementation("curse.maven:mekanism-generators-268566:6552914")
+
+    // Evolved mekanism and dependencies/dependents
+    modImplementation("fr.iglee42.evolvedmekanism:IgleesLibrary-${minecraft_version}-${iglees_library_version}")
+    modImplementation("fr.iglee42.igleelib:EvolvedMekanism-${minecraft_version}-${evolved_mekanism_version}")
+    modImplementation("com.jerry.mekanism_extras:mekanism_extras-${minecraft_version}-${mekanism_extras_version}")
+    modImplementation("io.github.masyumero.emextras:EvolvedMekanismExtras-${minecraft_version}-${evolved_mekanism_extras_version}")
+
+    modImplementation("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}-${bookshelf_version}")
 }
 
 mixin {
