@@ -219,13 +219,23 @@ dependencies {
     modImplementation("curse.maven:mekanism-tools-268567:6552915")
     modImplementation("curse.maven:mekanism-generators-268566:6552914")
 
+    modImplementation("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}-${bookshelf_version}")
+
     // Evolved mekanism and dependencies/dependents
     modImplementation("fr.iglee42.evolvedmekanism:IgleesLibrary-${minecraft_version}-${iglees_library_version}")
     modImplementation("fr.iglee42.igleelib:EvolvedMekanism-${minecraft_version}-${evolved_mekanism_version}")
     modImplementation("com.jerry.mekanism_extras:mekanism_extras-${minecraft_version}-${mekanism_extras_version}")
     modImplementation("io.github.masyumero.emextras:EvolvedMekanismExtras-${minecraft_version}-${evolved_mekanism_extras_version}")
+    modImplementation("com.CompactMekanismMachines.common:compactmekanismmachines-${compact_mekanism_machines_version}")
 
-    modImplementation("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}-${bookshelf_version}")
+    modImplementation("curse.maven:mekanism-elements-1103224:6537553")
+    modImplementation("curse.maven:mekanism-more-machine-1275257:7485850")
+    modImplementation("curse.maven:botany-pots-353928:7612402")
+    modImplementation("curse.maven:stack-upgrade-integration-1510741:7915901")
+
+    modImplementation("curse.maven:mega-cells-622112:6175008")
+
+    modImplementation("astral_mekanism:astral_mekanism-${astral_mekanism_version}")
 }
 
 mixin {
