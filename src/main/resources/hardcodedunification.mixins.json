@@ -16,6 +16,7 @@
     "sgjourney.StargateJourneyClientModEventsMixin",
     "sgjourney.UnifySGJourneyCrystallizerNaquadahMixin",
     "sophisticatedcore.XpPumpUpgradeWrapperMixin",
+    "mekanism.ChemRecipesMixin",
     "mobgrindingutils.TileEntitySinkTankMixin",
     "mobgrindingutils.TileEntityAbsorptionHopperMixin",
     "utilitix.TileExperienceCrystalMixin"
