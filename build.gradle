@@ -205,7 +205,7 @@ dependencies {
     // Curios
     modImplementation("top.theillusivec4.curios:curios-forge-${curios_version}+${minecraft_version}")
 
-    // Applied Energistics and dependencies/dependents
+    // Applied Energistics 2 and dependencies/dependents
     modImplementation("appeng.core:appliedenergistics2-forge-${ae2_version}")
     modImplementation("guideme:guideme-${guideme_version}");
     modImplementation("net.pedroksl.ae2addonlib:AE2AddonLib-${ae2_addon_lib_version}-${minecraft_version}")
@@ -214,28 +214,39 @@ dependencies {
     modImplementation("com.glodblock.github.glodium:Glodium-1.20-${glodium_version}-forge")
     modImplementation("com.glodblock.github.ae2netanalyser:AppliedFlux-1.20-${applied_flux_version}-forge")
     modImplementation("me.ramidzkh.mekae2:Applied-Mekanistics-${applied_mekanistics_version}")
+    modImplementation("curse.maven:mega-cells-622112:6175008")
 
     // I couldn't find the source code for Mekanism Tools and Mekanism Generators, so I'm using their maven repositories instead
     modImplementation("curse.maven:mekanism-tools-268567:6552915")
     modImplementation("curse.maven:mekanism-generators-268566:6552914")
-
     modImplementation("net.darkhax.bookshelf:Bookshelf-Forge-${minecraft_version}-${bookshelf_version}")
 
-    // Evolved mekanism and dependencies/dependents
-    modImplementation("fr.iglee42.evolvedmekanism:IgleesLibrary-${minecraft_version}-${iglees_library_version}")
-    modImplementation("fr.iglee42.igleelib:EvolvedMekanism-${minecraft_version}-${evolved_mekanism_version}")
-    modImplementation("com.jerry.mekanism_extras:mekanism_extras-${minecraft_version}-${mekanism_extras_version}")
-    modImplementation("io.github.masyumero.emextras:EvolvedMekanismExtras-${minecraft_version}-${evolved_mekanism_extras_version}")
-    modImplementation("com.CompactMekanismMachines.common:compactmekanismmachines-${compact_mekanism_machines_version}")
+//    // Evolved mekanism and dependencies/dependents
+//    modImplementation("fr.iglee42.evolvedmekanism:IgleesLibrary-${minecraft_version}-${iglees_library_version}")
+//    modImplementation("fr.iglee42.igleelib:EvolvedMekanism-${minecraft_version}-${evolved_mekanism_version}")
+//    modImplementation("com.jerry.mekanism_extras:mekanism_extras-${minecraft_version}-${mekanism_extras_version}")
+//    modImplementation("io.github.masyumero.emextras:EvolvedMekanismExtras-${minecraft_version}-${evolved_mekanism_extras_version}")
+//    modImplementation("com.CompactMekanismMachines.common:compactmekanismmachines-${compact_mekanism_machines_version}")
 
-    modImplementation("curse.maven:mekanism-elements-1103224:6537553")
-    modImplementation("curse.maven:mekanism-more-machine-1275257:7485850")
-    modImplementation("curse.maven:botany-pots-353928:7612402")
-    modImplementation("curse.maven:stack-upgrade-integration-1510741:7915901")
+//    modImplementation("curse.maven:mekanism-elements-1103224:6537553")
+//    modImplementation("curse.maven:mekanism-more-machine-1275257:7485850")
+//    modImplementation("curse.maven:botany-pots-353928:7612402")
+//    modImplementation("curse.maven:stack-upgrade-integration-1510741:7915901")
 
-    modImplementation("curse.maven:mega-cells-622112:6175008")
+    // Astral Mekanism
+    //modImplementation("astral_mekanism:astral_mekanism-${astral_mekanism_version}")
 
-    modImplementation("astral_mekanism:astral_mekanism-${astral_mekanism_version}")
+    // Draconic Evolution and dependencies
+    modImplementation("codechicken.lib:CodeChickenLib-${minecraft_version}-${code_chicken_lib_version}")
+    modImplementation("com.brandon3055.brandonscore:BrandonsCore-${minecraft_version}-${brandons_core_version}")
+    modImplementation("com.brandon3055.draconicevolution:Draconic-Evolution-${minecraft_version}-${draconic_evolution_version}")
+
+    // Botania and depencencies
+    modImplementation("vazkii.patchouli.forge:Patchouli-${minecraft_version}-${patchouli_version}-FORGE")
+    modImplementation("vazkii.botania.forge:Botania-${minecraft_version}-${botania_version}-FORGE")
+
+    // Nova Mekanism
+    modImplementation("com.falcon2235.moremultiblock:Nova-Mekanism-${minecraft_version}-${nova_mekanism_version}")
 }
 
 mixin {
