@@ -1,11 +1,9 @@
 package com.shugabrush.hardcodedunification.mixin.mekanism;
 
 import com.falcon2235.moremultiblock.machine.ChemRecipes;
-import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import com.shugabrush.hardcodedunification.utils.ItemUnification;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
