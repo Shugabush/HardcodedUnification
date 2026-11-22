@@ -226,6 +226,10 @@ dependencies {
     modImplementation("com.brandon3055.brandonscore:BrandonsCore-${minecraft_version}-${brandons_core_version}")
     modImplementation("com.brandon3055.draconicevolution:Draconic-Evolution-${minecraft_version}-${draconic_evolution_version}")
 
+    // KubeJS and dependencies
+    modImplementation("dev.latvian.mods.rhino:rhino-forge-${rhino_version}")
+    modImplementation("dev.latvian.mods.kubejs:kubejs-forge-${kubejs_version}")
+
     // Botania and depencencies
     modImplementation("vazkii.patchouli.forge:Patchouli-${minecraft_version}-${patchouli_version}-FORGE")
     modImplementation("vazkii.botania.forge:Botania-${minecraft_version}-${botania_version}-FORGE")

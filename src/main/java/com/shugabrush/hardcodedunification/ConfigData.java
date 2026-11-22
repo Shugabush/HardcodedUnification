@@ -24,6 +24,10 @@ public class ConfigData
     @Configurable
     public boolean avaritiaUnificationEnabled = true;
     @Configurable
+    @Configurable.Comment("Neutronium material tag for Avaritia's Neutron Collectors.\n" +
+            "It's your responsibility to make sure your item actually has this tag and that almostunified recognizes it.")
+    public String neutroniumMaterial = "neutronium";
+    @Configurable
     public boolean gtceuUnificationEnabled = true;
     @Configurable
     public boolean industrialForegoingUnificationEnabled = true;
