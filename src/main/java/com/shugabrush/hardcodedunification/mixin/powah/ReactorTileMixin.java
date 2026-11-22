@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.ItemUnification;
 import dev.architectury.hooks.item.ItemStackHooks;
 import dev.architectury.registry.fuel.FuelRegistry;
@@ -18,6 +19,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import owmii.powah.api.PowahAPI;
 import owmii.powah.block.reactor.ReactorBlock;
 import owmii.powah.block.reactor.ReactorTile;
+import owmii.powah.item.Itms;
 import owmii.powah.lib.block.AbstractEnergyProvider;
 import owmii.powah.lib.block.IInventoryHolder;
 import owmii.powah.lib.logistics.energy.Energy;
@@ -61,7 +63,8 @@ public class ReactorTileMixin extends AbstractEnergyProvider< ReactorBlock> impl
     {
         if (slot == 1)
         {
-            return isUnifiedUraninite(stack);
+            return ConfigData.INSTANCE.mobGrindingUtilsUnificationEnabled ?
+                    isUnifiedUraninite(stack) : stack.getItem() == Itms.URANINITE.get();
         }
         else if (slot == 2)
         {
@@ -99,7 +102,9 @@ public class ReactorTileMixin extends AbstractEnergyProvider< ReactorBlock> impl
         if (this.fuel.getTicks() <= 900)
         {
             ItemStack stack = this.inv.getStackInSlot(1);
-            if (isUnifiedUraninite(stack))
+            boolean canInsert = ConfigData.INSTANCE.powahUnificationEnabled ?
+                    isUnifiedUraninite(stack) : stack.getItem() == Itms.URANINITE.get();
+            if (canInsert)
             {
                 this.fuel.add(100);
                 this.baseTemp = 700;

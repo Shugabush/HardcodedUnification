@@ -3,6 +3,7 @@ package com.shugabrush.hardcodedunification.mixin.adastra;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import earth.terrarium.adastra.common.entities.vehicles.Rocket;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +19,7 @@ public class RocketMixin
                         target = "Lnet/minecraft/core/DefaultedRegistry;get(Lnet/minecraft/resources/ResourceLocation;)Ljava/lang/Object;"))
     public ResourceLocation fluid(ResourceLocation resourceLocation)
     {
-        return BuiltInRegistries.FLUID.getKey(FluidUnification.getFluid(resourceLocation));
+        return ConfigData.INSTANCE.adAstraUnificationEnabled ?
+                BuiltInRegistries.FLUID.getKey(FluidUnification.getFluid(resourceLocation)) : resourceLocation;
     }
 }

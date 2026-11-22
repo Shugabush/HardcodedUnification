@@ -7,6 +7,7 @@ import net.minecraftforge.fml.ModList;
 
 import com.buuz135.industrial.plugin.jei.JEICustomPlugin;
 import com.buuz135.industrial.plugin.jei.machineproduce.MachineProduceWrapper;
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import com.shugabrush.hardcodedunification.utils.ItemUnification;
 import org.spongepowered.asm.mixin.Mixin;
@@ -26,7 +27,7 @@ public class JEICustomPluginMixin
     // Make recipes display their unified output items
     <T> List< T> getRecipes(List< T> recipes)
     {
-        if (!ModList.get().isLoaded("almostunified"))
+        if (!ConfigData.INSTANCE.industrialForegoingUnificationEnabled || !ModList.get().isLoaded("almostunified"))
             return recipes;
 
         for (int i = 0; i < recipes.size(); ++i)

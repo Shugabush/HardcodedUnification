@@ -6,6 +6,7 @@ import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.fml.ModList;
 
 import com.hrznstudio.titanium.component.fluid.FluidTankComponent;
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -43,11 +44,14 @@ public class FluidTankComponentMixin extends FluidTank
     @Overwrite
     public int fillForced(FluidStack stack, FluidAction action)
     {
-        Fluid fluid = ModList.get().isLoaded("almostfluidified") ? FluidUnification.getFluid(stack.getFluid()) :
-                stack.getFluid();
-        if (stack.getFluid() != fluid)
+        if (ConfigData.INSTANCE.industrialForegoingUnificationEnabled)
         {
-            stack = new FluidStack(fluid, stack.getAmount());
+            Fluid fluid = ModList.get().isLoaded("almostfluidified") ? FluidUnification.getFluid(stack.getFluid()) :
+                    stack.getFluid();
+            if (stack.getFluid() != fluid)
+            {
+                stack = new FluidStack(fluid, stack.getAmount());
+            }
         }
         return super.fill(stack, action);
     }
@@ -55,7 +59,7 @@ public class FluidTankComponentMixin extends FluidTank
     @Overwrite
     private FluidStack drainInternal(FluidStack stack, FluidAction action)
     {
-        if (!ModList.get().isLoaded("almostfluidified"))
+        if (!ConfigData.INSTANCE.industrialForegoingUnificationEnabled || !ModList.get().isLoaded("almostfluidified"))
             return stack;
         Fluid unifiedFluid = FluidUnification.getFluid(stack.getFluid());
         if (stack.getFluid() != unifiedFluid)
@@ -79,7 +83,7 @@ public class FluidTankComponentMixin extends FluidTank
             drained = fluid.getAmount();
         }
         FluidStack stack = new FluidStack(fluid, drained);
-        if (!ModList.get().isLoaded("almostfluidified"))
+        if (!ConfigData.INSTANCE.industrialForegoingUnificationEnabled || !ModList.get().isLoaded("almostfluidified"))
             return stack;
         if (action.execute() && drained > 0)
         {
@@ -92,7 +96,7 @@ public class FluidTankComponentMixin extends FluidTank
     @Overwrite
     public FluidStack drainForced(FluidStack stack, FluidAction action)
     {
-        if (!ModList.get().isLoaded("almostfluidified"))
+        if (!ConfigData.INSTANCE.industrialForegoingUnificationEnabled || !ModList.get().isLoaded("almostfluidified"))
             return stack;
         Fluid unifiedFluid = FluidUnification.getFluid(stack.getFluid());
         if (stack.getFluid() != unifiedFluid)

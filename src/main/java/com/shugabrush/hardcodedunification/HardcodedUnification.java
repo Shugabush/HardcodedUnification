@@ -29,6 +29,8 @@ public class HardcodedUnification
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
 
+        ConfigData.init();
+
         // Most other events are fired on Forge's bus.
         // If we want to use annotations to register event listeners,
         // we need to register our object like this!

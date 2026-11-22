@@ -3,6 +3,7 @@ package com.shugabrush.hardcodedunification.mixin.mobgrindingutils;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import mob_grinding_utils.tile.TileEntityAbsorptionHopper;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +20,7 @@ public class TileEntityAbsorptionHopperMixin
                index = 0)
     private static Fluid serverTickFluid(Fluid fluid)
     {
-        return FluidUnification.getFluid(fluid);
+        return ConfigData.INSTANCE.mobGrindingUtilsUnificationEnabled ? FluidUnification.getFluid(fluid) : fluid;
     }
 
     @ModifyArg(method = "captureDroppedXP",
@@ -28,6 +29,6 @@ public class TileEntityAbsorptionHopperMixin
                index = 0)
     FluidStack getUnifiedFluidToFill(FluidStack resource)
     {
-        return FluidUnification.getFluid(resource);
+        return ConfigData.INSTANCE.mobGrindingUtilsUnificationEnabled ? FluidUnification.getFluid(resource) : resource;
     }
 }

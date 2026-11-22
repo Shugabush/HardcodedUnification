@@ -2,6 +2,7 @@ package com.shugabrush.hardcodedunification.mixin.avaritia;
 
 import net.minecraft.world.item.crafting.Ingredient;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.ItemUnification;
 import committee.nova.mods.avaritia.init.registry.enums.CollectorTier;
 import org.spongepowered.asm.mixin.Final;
@@ -24,6 +25,7 @@ public class CollectorTierMixin
     @Inject(method = "<init>", at = @At("TAIL"))
     private void init(CallbackInfo ci)
     {
-        production = Ingredient.of(ItemUnification.getItem(production.getItems()[0]));
+        production = ConfigData.INSTANCE.avaritiaUnificationEnabled ?
+                Ingredient.of(ItemUnification.getItem(production.getItems()[0])) : production;
     }
 }

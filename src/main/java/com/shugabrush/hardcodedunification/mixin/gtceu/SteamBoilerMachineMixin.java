@@ -5,6 +5,7 @@ import com.gregtechceu.gtceu.api.machine.steam.SteamBoilerMachine;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.ModList;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,7 +24,7 @@ public abstract class SteamBoilerMachineMixin
                index = 0)
     private FluidStack unifySteam(FluidStack stack)
     {
-        if (!ModList.get().isLoaded("almostfluidified"))
+        if (!ConfigData.INSTANCE.gtceuUnificationEnabled || !ModList.get().isLoaded("almostfluidified"))
             return stack;
         return FluidUnification.getFluid(stack);
     }

@@ -2,6 +2,7 @@ package com.shugabrush.hardcodedunification.mixin.utilitix;
 
 import net.minecraftforge.fluids.FluidStack;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import de.melanx.utilitix.content.experiencecrystal.TileExperienceCrystal;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,6 +17,9 @@ public class TileExperienceCrystalMixin
     @Inject(method = "getFluidInTank", at = @At("RETURN"), cancellable = true)
     void getUnifiedFluidInTank(int tank, CallbackInfoReturnable< FluidStack> cir)
     {
-        cir.setReturnValue(FluidUnification.getFluid(cir.getReturnValue()));
+        if (ConfigData.INSTANCE.stargateJourneyUnificationEnabled)
+        {
+            cir.setReturnValue(FluidUnification.getFluid(cir.getReturnValue()));
+        }
     }
 }

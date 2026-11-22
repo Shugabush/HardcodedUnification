@@ -5,6 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import com.buuz135.industrial.block.core.tile.LatexProcessingUnitTile;
 import com.hrznstudio.titanium.component.fluid.SidedFluidTankComponent;
 import com.hrznstudio.titanium.component.inventory.SidedInventoryComponent;
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.ItemUnification;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,7 +36,7 @@ public class LatexProcessingUnitTileMixin
                index = 1)
     private @NotNull ItemStack v(@NotNull ItemStack originalItem)
     {
-        return new ItemStack(ItemUnification
-                .getItem(originalItem));
+        return !ConfigData.INSTANCE.industrialForegoingUnificationEnabled ?
+                new ItemStack(ItemUnification.getItem(originalItem)) : originalItem;
     }
 }

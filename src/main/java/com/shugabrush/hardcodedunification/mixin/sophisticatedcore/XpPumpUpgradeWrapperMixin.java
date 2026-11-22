@@ -3,6 +3,7 @@ package com.shugabrush.hardcodedunification.mixin.sophisticatedcore;
 import net.minecraft.world.level.material.Fluid;
 import net.p3pp3rf1y.sophisticatedcore.upgrades.xppump.XpPumpUpgradeWrapper;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,6 +21,7 @@ public class XpPumpUpgradeWrapperMixin
                index = 2)
     private Fluid unifiedXp(Fluid originalFluid)
     {
-        return FluidUnification.getFluid(originalFluid);
+        return ConfigData.INSTANCE.sophisticatedCoreUnificationEnabled ? FluidUnification.getFluid(originalFluid) :
+                originalFluid;
     }
 }

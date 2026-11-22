@@ -2,6 +2,7 @@ package com.shugabrush.hardcodedunification.mixin.mobgrindingutils;
 
 import net.minecraftforge.fluids.FluidStack;
 
+import com.shugabrush.hardcodedunification.ConfigData;
 import com.shugabrush.hardcodedunification.utils.FluidUnification;
 import mob_grinding_utils.tile.TileEntitySinkTank;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +19,6 @@ public class TileEntitySinkTankMixin
                index = 0)
     FluidStack getUnifiedFluid(FluidStack resource)
     {
-        return FluidUnification.getFluid(resource);
+        return ConfigData.INSTANCE.mobGrindingUtilsUnificationEnabled ? FluidUnification.getFluid(resource) : resource;
     }
 }
