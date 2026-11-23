@@ -186,8 +186,9 @@ dependencies {
     // Stargate Journey
     modImplementation("net.povstalec.sgjourney:Stargate Journey-${minecraft_version}-${stargate_journey_version}")
 
-    // Avaritia
+    // Avaritia and Avaritia Integration
     modImplementation("committee.nova.mods.avaritia:Re-Avaritia-forge-${minecraft_version}-${avaritia_version}-release")
+    modImplementation("committee.nova.mods.avaritia_integration:Avaritia-Integration-forge-${minecraft_version}-${avaritia_integration_version}-release")
 
     // Mob Grinding Utils
     modImplementation("mob_grinding_utils:mob_grinding_utils-${minecraft_version}-${mob_grinding_utils_version}")
