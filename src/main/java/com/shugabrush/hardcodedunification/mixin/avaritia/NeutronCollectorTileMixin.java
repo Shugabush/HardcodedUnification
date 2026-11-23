@@ -2,6 +2,7 @@ package com.shugabrush.hardcodedunification.mixin.avaritia;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fml.ModList;
@@ -11,6 +12,7 @@ import committee.nova.mods.avaritia.common.tile.NeutronCollectorTile;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -27,6 +29,26 @@ public class NeutronCollectorTileMixin
         {
             ci.cancel();
         }
+    }
+
+    // @ModifyVariable(method = "serverTick", at = @At(value = "STORE"), ordinal = 0, remap = false)
+    // private static ItemStack getUnifiedResult(ItemStack result)
+    // {
+    // if (ModList.get().isLoaded("almostunified"))
+    // {
+    // return new ItemStack(ItemUnification.getItem(result), result.getCount());
+    // }
+    // return result;
+    // }
+
+    @ModifyVariable(method = "serverTick", at = @At(value = "STORE"), ordinal = 1, remap = false)
+    private static ItemStack getUnifiedStack(ItemStack stack)
+    {
+        if (ModList.get().isLoaded("almostunified"))
+        {
+            return new ItemStack(ItemUnification.getItem(stack), stack.getCount());
+        }
+        return stack;
     }
 
     @Inject(method = "getProduction", at = @At(value = "RETURN"), cancellable = true)
